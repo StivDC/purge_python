@@ -1,65 +1,107 @@
 item_id = {
     "id": "id",
 
-    "name": "id card",
+    "name": "student id",
 
     "description":
     """You new shiny student ID card. Expires 1 June 2017.
 You wonder why they have printed a suicide hotline number on it?...""",
-    "mass": 0.2
+
+    "mass": 0.2,
+    
+    "value": 0
 }
 
-item_laptop = {
-    "id": "laptop",
+item_gun = {
+    "id": "gun",
 
-    "name": "laptop",
+    "name": "gun",
 
     "description":
-    "It has seen better days. At least it has a WiFi card!",
-    "mass": 1.5
+    "Its a GUN, try not to schoot peeople",
+
+    "mass": 1.5,
+
+    "value": 0
+    
 }
 
+item_knife = {
+    "id": "knife",
+
+    "name": "knife",
+
+    "description":
+    "This knife is realy sharp :)",
+
+    "mass": 0.3,
+
+    "value": 0
+}
+
+item_first_aid = {
+    "id": "first aid",
+
+    "name": "first aid kit to heal up",
+
+    "description": "Carrys the esentails to heal up",
+
+    "mass": 0.4,
+
+    "value": 0
+}
+
+item_bandage = {
+    "id": "bandage",
+    
+    "name": "bandage",
+
+    "description": "just a bandage",
+
+    "mass": 0.2,
+
+    "value": 0
+}
+
+item_key = {
+    "id": "key",
+    
+    "name": "a key",
+
+    "description": "Use it to unlock ceratin rooms",
+
+    "mass": 0.8,
+
+    "value": 0
+}
 item_money = {
     "id": "money",
-
+    
     "name": "money",
 
-    "description":
-    "This wad of cash is barely enough to pay your tuition fees.",
-    "mass": 0.3
-}
+    "description": "Get rich or die trying",
 
-item_biscuits = {
-    "id": "biscuits",
+    "mass": 0.0,
 
-    "name": "a pack of biscuits",
-
-    "description": "A pack of biscuits.",
-    "mass": 0.4
-}
-
-item_pen = {
-    "id": "pen",
-    
-    "name": "a pen",
-
-    "description": "A basic ballpoint pen.",
-    "mass": 0.2
-}
-
-item_handbook = {
-    "id": "handbook",
-    
-    "name": "a student handbook",
-
-    "description": "This student handbook explains everything. Seriously.",
-    "mass": 0.8
+    "value": 100
 }
 items = {
     "id": item_id,
-    "laptop": item_laptop,
+    "gun": item_gun,
     "money": item_money,
-    "biscuits": item_biscuits,
-    "pen": item_pen,
-    "handbook": item_handbook
+    "knife": item_knife,
+    "first aid": item_first_aid,
+    "bandage": item_bandage,
+    "key": item_key
 }
+#money
+#gun
+#knife
+#student card
+#first aid kit
+#bandage
+#key
+
+#inplement a function to drop a random item if the player wants to carry to many
+#the player would gets told on his second move
+

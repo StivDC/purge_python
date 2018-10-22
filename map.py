@@ -86,7 +86,7 @@ building_museum = {
 
     "description": "",
 
-    "exits": {"east": "Student's Unions", "south": "Shopping Centre", "west": "Castle"},
+    "exits": {"east": "Student's Union", "south": "Shopping Centre", "west": "Castle"},
 
     "items": [item_pen]
 }

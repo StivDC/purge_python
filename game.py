@@ -4,6 +4,9 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
+from time import sleep
+import random
+from events import game_events
 
 def list_of_items(items):
  
@@ -17,6 +20,7 @@ def list_of_items(items):
 
     return item_names
 
+
 def print_room_items(room):
 
     if len(room["items"]) != 0:
@@ -26,8 +30,7 @@ def print_room_items(room):
 def print_inventory_items(items):
 
     print("You have " + str(list_of_items(items) + ".\n"))
-    pass
-
+    
 def print_room(room):
     
     # Display room name
@@ -38,9 +41,6 @@ def print_room(room):
     print(room["description"])
     print()
     print_room_items(room)
-    #
-    # COMPLETE ME!
-    #
 
 def exit_leads_to(exits, direction):
 
@@ -95,11 +95,9 @@ def execute_go(direction):
     exit = is_valid_exit(current_room['exits'], direction)
     if exit:
         current_room = move(current_room['exits'], direction)
-        check_if_won()
+        print(event(int(random.random() * 9)))
     else:
           print("You cannot go there.")
-        
-
 
 def execute_take(item_id):
 
@@ -135,9 +133,6 @@ def execute_drop(item_id):
             check_if_won()
     if exists !=1:
         print("You cannot drop that.")
-    
-    
-    
 
 def execute_command(command):
 
@@ -168,7 +163,9 @@ def execute_command(command):
     else:
         print("This makes no sense.")
 
-
+def event(eventID):
+    return eventID
+    
 def menu(exits, room_items, inv_items):
 
     # Display menu
@@ -198,15 +195,20 @@ def main():
    ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
                                                                        
 """)
+    
+    testText = ""
+    for x in testText:
+        print(x, end='')
+        sleep(uniform(0, 0.1))
+    
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
         print_room(current_room)
         print_inventory_items(inventory)
-
         # Show the menu with possible actions and ask the player
         command = menu(current_room["exits"], current_room["items"], inventory)
-    
+        
         # Execute the player's command
         execute_command(command)
 
@@ -215,4 +217,3 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     main()
-

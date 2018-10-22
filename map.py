@@ -1,10 +1,14 @@
-cardiff_uni = {
+from items import *
+
+cardiff_university = {
 
     "name": "Cardiff University",
 
     "description": "",
 
-    "exits": {"east": "Blackweir Tavern", "west": "Bute Park", "south": "Library"}
+    "exits": {"east": "Blackweir Tavern", "west": "Bute Park", "south": "Library"},
+
+    "items": [item_pen]
     
 }
 
@@ -13,7 +17,9 @@ blackweir_tavern = {
 
     "description": "",
 
-    "exits": {"east": "Lidl", "west": "Cardiff University"}
+    "exits": {"east": "Lidl", "west": "Cardiff University"},
+
+     "items": [item_pen]
 }
 
 bute_park = {
@@ -21,7 +27,9 @@ bute_park = {
 
     "description": "",
 
-    "exits": {"north": "Cardiff University", "east": "City Hall", "south": "Castle"}
+    "exits": {"north": "Cardiff University", "east": "City Hall", "south": "Castle"},
+
+     "items": [item_pen]
 }
 
 building_library = {
@@ -29,7 +37,9 @@ building_library = {
 
     "description": "",
 
-    "exits": {"north": "Cardiff University", "west": "Lidl", "south": "City Hall"}
+    "exits": {"north": "Cardiff University", "west": "Lidl", "south": "City Hall"},
+
+    "items": [item_pen]
 }
 
 building_lidl = {
@@ -37,7 +47,9 @@ building_lidl = {
 
     "description": "",
 
-    "exits": {"west": "Library"}
+    "exits": {"west": "Library"},
+
+    "items": [item_pen]
 }
 
 city_hall = {
@@ -45,7 +57,9 @@ city_hall = {
 
     "description": "",
 
-    "exits": {"north": "Library", "east": "Student's Union", "west": "Bute Park"}
+    "exits": {"north": "Library", "east": "Student's Union", "west": "Bute Park"},
+
+    "items": [item_pen]
 }
 
 students_union = {
@@ -53,7 +67,9 @@ students_union = {
 
     "description": "",
 
-    "exits": {"north": "Lidl", "east": "Mystery Location", "south": "Museum", "west": "City Hall"}
+    "exits": {"north": "Lidl", "east": "Mystery Location", "south": "Museum", "west": "City Hall"},
+
+    "items": [item_pen]
 }
 
 building_castle = {
@@ -61,14 +77,18 @@ building_castle = {
 
     "description": "",
 
-    "exits": {"north": "Bute Park", "east": "Museum", "west": "Mystery Location"}
+    "exits": {"north": "Bute Park", "east": "Museum", "west": "Mystery Location"},
+
+    "items": [item_pen]
 }
 building_museum = {
     "name": "Museum",
 
     "description": "",
 
-    "exits": {"east": "Student's Unions", "south": "Shopping Centre", "west": "Castle"}
+    "exits": {"east": "Student's Unions", "south": "Shopping Centre", "west": "Castle"},
+
+    "items": [item_pen]
 }
 
 principality_stadium = {
@@ -76,7 +96,9 @@ principality_stadium = {
 
     "description": "",
 
-    "exits": {"north": "Castle", "east":"Museum"}
+    "exits": {"north": "Castle", "east":"Museum"},
+
+    "items": [item_pen]
 }
 
 shopping_centre = {
@@ -84,7 +106,9 @@ shopping_centre = {
 
     "description": "",
 
-    "exits": {"north": "Museum", "south":"unknown","east": "unknown", "west":"Principality Stadium"}
+    "exits": {"north": "Museum", "south":"unknown","east": "unknown", "west":"Principality Stadium"},
+
+    "items": [item_pen]
 }
 
 trap_door = {
@@ -92,7 +116,9 @@ trap_door = {
 
     "description": "",
 
-    "exits": {"": ""}
+    "exits": {"": ""},
+
+    "items": [item_pen]
 }
 
 safe_house = {
@@ -100,11 +126,13 @@ safe_house = {
 
     "description": "",
 
-    "exits": {"": ""}
+    "exits": {"": ""},
+
+    "items": [item_pen]
 }
 
 rooms = {
-    "Cardiff Uni": cardiff_uni,
+    "Cardiff University": cardiff_university,
     "Blackweir Tavern": blackweir_tavern,
     "Bute Park": bute_park,
     "Library": building_library,

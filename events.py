@@ -181,7 +181,7 @@ the appearance of it seems like an item you could use or pocket.
 You hope for the best as you reach down to pick it up.
 	"""
 }
-events = {
+game_events = {
 	"1" : Kirill_van,
 	"2": Crazy_gang,
 	"3": Machete_murderer,

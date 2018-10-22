@@ -113,7 +113,8 @@ Machete_murderer = {
          |  |          |  |
        __|   \       __|   \
       (_______]     (_______]
-	"""
+	""",
+  
 	"id": "Machete_murderer",
 
 	"name": "A dual weilding machete murderer",

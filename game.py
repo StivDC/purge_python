@@ -7,6 +7,8 @@ from gameparser import *
 from time import sleep
 import random
 from events import game_events
+import sys
+import termcolor
 
 #def time_left_night(i):
 #    x = 8
@@ -95,6 +97,7 @@ def check_if_won():
 def is_valid_exit(exits, chosen_exit):
   
     return chosen_exit in exits
+
 
 
 def execute_go(direction):
@@ -213,7 +216,7 @@ def main():
                                                                        
 """)
     print("MONEY: " + str(money) + "\nHEALTH: " + str(health) + "\n")
-    testText = ""
+    cprint('Hello, World!', 'green', 'on_red')
     for x in testText:
         print(x, end='')
         sleep(uniform(0, 0.1))

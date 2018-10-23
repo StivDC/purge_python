@@ -184,8 +184,8 @@ You hope for the best as you reach down to pick it up.
 }
 game_events = {
 	"1" : Kirill_van,
-	"2": Crazy_gang,
-	"3": Machete_murderer,
-	"4": Sneak_attack,
-	"5": Random_item
+	"3": Crazy_gang,
+	"5": Machete_murderer,
+	"7": Sneak_attack,
+	"9": Random_item
 }

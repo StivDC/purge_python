@@ -161,7 +161,6 @@ scrambling for the remains.
     "exits": {"north": "Museum", "south":"unknown","east": "unknown", "west":"Principality Stadium"},
 
     "items": [item_knife, item_bandage]
-    "items": []
 }
 
 trap_door = {

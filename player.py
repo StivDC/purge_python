@@ -4,7 +4,7 @@ from map import rooms
 global health
 global money
 
-inventory = [item_id, item_laptop, item_money]
+inventory = [item_id, item_knife, item_money]
 
 health = 100
 money = 0

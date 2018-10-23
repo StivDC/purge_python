@@ -9,7 +9,7 @@ cardiff_university = {
 
     "exits": {"east": "Blackweir Tavern", "west": "Bute Park", "south": "Library"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
     
 }
 
@@ -28,7 +28,7 @@ You need to decide how you are going to survive the night.
 
     "exits": {"east": "Lidl", "west": "Cardiff University"},
 
-     "items": [item_pen]
+     "items": [item_bandage]
 }
 
 bute_park = {
@@ -42,7 +42,7 @@ You can make out three clear exit doors.
 
     "exits": {"north": "Cardiff University", "east": "City Hall", "south": "Castle"},
 
-     "items": [item_pen]
+     "items": [item_bandage]
 }
 
 building_library = {
@@ -54,9 +54,9 @@ You can hear distant noises from other things inhabiting the forest with you.
 You can see two breaks of light: one close and one far off in the distance.
     """,
 
-    "exits": {"north": "Cardiff University", "west": "Lidl", "south": "City Hall"},
+    "exits": {"north": "Cardiff University", "east": "Lidl", "south": "City Hall"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 building_lidl = {
@@ -69,7 +69,7 @@ Suddenly shelves collapse, blocking off two exits, leaving you with only one to 
 
     "exits": {"west": "Library"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 city_hall = {
@@ -84,7 +84,7 @@ There is only one possible exit now.
 
     "exits": {"north": "Library", "east": "Student's Union", "west": "Bute Park"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 students_union = {
@@ -98,7 +98,7 @@ There are three available exits.
 
     "exits": {"north": "Lidl", "east": "Mystery Location", "south": "Museum", "west": "City Hall"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 building_castle = {
@@ -112,7 +112,7 @@ There are two possible exits from the castle.
 
     "exits": {"north": "Bute Park", "east": "Museum", "west": "Mystery Location"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 building_museum = {
     "name": "Museum",
@@ -125,7 +125,7 @@ There are two possible exits from the castle.
 
     "exits": {"east": "Student's Union", "south": "Shopping Centre", "west": "Castle"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 principality_stadium = {
@@ -139,7 +139,7 @@ There is now only one available exit.
 
     "exits": {"north": "Castle", "east": "Museum"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 shopping_centre = {
@@ -153,7 +153,7 @@ scrambling for the remains.
 
     "exits": {"north": "Museum", "south":"unknown","east": "unknown", "west":"Principality Stadium"},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 trap_door = {
@@ -163,14 +163,14 @@ trap_door = {
 
     "exits": {"": ""},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 safe_house = {
     "name": "Safe House",
 
     "description": """
-╔═══╗─────────────╔╗───╔╗───╔╗
+    ╔═══╗─────────────╔╗───╔╗───╔╗
 ║╔═╗║────────────╔╝╚╗──║║──╔╝╚╗
 ║║─╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
 ║║─╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
@@ -187,7 +187,7 @@ and fall asleep after a restless night.
 
     "exits": {"": ""},
 
-    "items": [item_pen]
+    "items": [item_bandage]
 }
 
 rooms = {

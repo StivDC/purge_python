@@ -95,7 +95,11 @@ def execute_go(direction):
     exit = is_valid_exit(current_room['exits'], direction)
     if exit:
         current_room = move(current_room['exits'], direction)
-        print(event(int(random.random() * 9)))
+        eventID = int(random.random() * 10)
+        if eventID % 2 == 1:
+            print(event(eventID))
+        else:
+            print("SAFE MOVE")
     else:
           print("You cannot go there.")
 
@@ -164,7 +168,10 @@ def execute_command(command):
         print("This makes no sense.")
 
 def event(eventID):
-    return eventID
+    eventID = str(eventID)
+    print("\n" + str(game_events[eventID]["ascii"]) + "\n")
+    print(str(game_events[eventID]["name"]) + "\n")
+    print(str(game_events[eventID]["description"]) + "\n")
     
 def menu(exits, room_items, inv_items):
 
@@ -195,7 +202,7 @@ def main():
    ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
                                                                        
 """)
-    
+    print("MONEY: " + str(money) + "\nHEALTH: " + str(health) + "\n")
     testText = ""
     for x in testText:
         print(x, end='')

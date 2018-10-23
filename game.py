@@ -8,13 +8,13 @@ from time import sleep
 import random
 from events import game_events
 
-def time_left_night(i):
-    x = 8
-    if i == x:
-        return False
-    else:
-        print("There is ", x - i, "hours left untill the end of the purge.")
-        return True
+#def time_left_night(i):
+#    x = 8
+#    y = x - i
+#    if i == x:
+#        return False
+#    else:
+#        print("There is ", y , "hours left untill the end of the purge.")
 
 def list_of_items(items):
  
@@ -202,6 +202,7 @@ def move(exits, direction):
 # This is the entry point of our programg
 def main():
     i = 0
+    x = 8
     print("""
 ████████╗██╗  ██╗███████╗    ██████╗ ██╗   ██╗██████╗  ██████╗ ███████╗
 ╚══██╔══╝██║  ██║██╔════╝    ██╔══██╗██║   ██║██╔══██╗██╔════╝ ██╔════╝
@@ -227,7 +228,7 @@ def main():
         
         # Execute the player's command
         execute_command(command)
-        if time_left_night(i) == False:
+        if x == i: 
             print("""
 ╔═══╗─────────────╔╗───╔╗───╔╗
 ║╔═╗║────────────╔╝╚╗──║║──╔╝╚╗
@@ -243,9 +244,11 @@ You fall flat on your back and sigh a sigh of relief.
 Glad to have survived the treaded purge and live on.
                 """)
             break
-        else:
-            print(time_left_night(i))
+        elif i != x:
             i += 0.5
+            y = x - i
+            print("There is ", y, " Hours left in the purge!")
+            
 
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.

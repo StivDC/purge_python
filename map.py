@@ -54,7 +54,7 @@ You can hear distant noises from other things inhabiting the forest with you.
 You can see two breaks of light: one close and one far off in the distance.
     """,
 
-    "exits": {"north": "Cardiff University", "west": "Lidl", "south": "City Hall"},
+    "exits": {"north": "Cardiff University", "east": "Lidl", "south": "City Hall"},
 
     "items": [item_bandage]
 }

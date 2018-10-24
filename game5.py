@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 
 from map import rooms
@@ -21,7 +22,6 @@ HINT: As he approached the field he knew he was going to die."
 
     """As I was going to the mall I met a man with seven wives,
 Each wive held two bags, Each bag held a mother cat, Each mother cat had six babies,
-
 How many people where going to the mall?
     """: "1",
 
@@ -34,7 +34,6 @@ How many people where going to the mall?
 Behead me, and I become a place of meeting.
 Behead me again, and I am the partner of ready.
 Restore me, and I become the domain of beasts.
-
 What am I?
     """: "Stable".lower(),
 
@@ -234,19 +233,133 @@ def event(eventID):
     print(str(game_events[eventID]["name"]) + "\n")
     print(str(game_events[eventID]["description"]) + "\n")
 
+def fight_flee_bribe(text, event_name):
+    player_use_item_event = False
+    while player_use_item_event == False:
+        if text.upper() == "F":
+            for item in inventory:
+                if item["id"] == "gun":
+                    ui_gun = input("Do you want to use your gun? Y = Yes, N = No.")
+                    if ui_gun.upper() == "Y":
+                        print("You have defeated {0}, however you have lost 15 health in doing so.".format(event_name))
+                        health -= 15
+                        player_use_item_event = True
+                        return
+                    elif ui_gun.upper() == "N":
+                        print("You didn't use your gun in defeating the {0} and lost 30 health.".format(event_name))
+                        health -= 30
+                        player_use_item_event = True
+                        return
+                elif item["id"] ==  "knife":
+                    ui_knife = input(("Do you want to use your knife? Y = yes, N = No:"))
+                    if ui_knife.upper() == "Y":
+                        print("You defeat the {0}, in your attempt to flee you lose 20 health.".format(event_name))
+                        health -= 20
+                        player_use_item_event = True
+                        return
+                    elif ui_knife.upper() == "N":
+                        print("You didn't use any weapons in your attempt to fight and have lost 50 health")
+                        health -= 50
+                        player_use_item_event = True
+                        return
+            print("You didn't use any weapons in your attempt to fight and have lost 50 health")
+            health -= 50
+            player_use_item_event = True
+        elif text.upper() == "FL":
+            print("You have attempted to flee and have lost a little bit of health in doing so")
+            health -= 5
+            player_use_item_event = True
+        elif text.upper() == "B" and event_name == "Crazy_gang":
+            if money >= 50:
+                use_money
+                player_use_item_event = True
+            else:
+                print("You attempted to bribe the gang but didn't have enough money and got hurt escaping")
+                health -= 30
+                player_use_item_event = True
+        else:
+            print("Invalid input")
+            print("Please input either [F] to fight, [FL] to flee or [B] to Bribe.")
+
+
+def check_user_ok(text):
+    while True:
+        print("Are you sure you want to {0} ?".format(text))
+        print("Y for yes, N for no.")
+        ui = input()
+        if ui.upper() == "Y":
+            return True
+        elif ui.upper() == "N":
+            return False
+        else:
+            print("This is an invalid input.")
+
 def event_action(eventID):
     global health
     
     if eventID == 1:
-        health = 50
+        text = "Give Kirill your ID"
+        for item in inventory:
+            if item["id"] == "id":
+                if check_user_ok(text) == True:
+                    print("Kirill is pleased that you have your ID handy.")
+                    print("He decides to give you a first aid kit in compensation.")
+                    inventory.append(item_first_aid)
+                    return
+                elif check_user_ok(text) == False:
+                    print("You decided not to show Kirill your ID")
+                    print("He has left in the haste he came.")
+                    break
+                    return
+        print("You do not have an ID and can't use Kirill's van.")
+        return
     elif eventID == 3:
-        health = 50
+        #fight, flee or bribe
+        print("Which do you choose to do?")
+        text = input(print("[F]ight, [FL]ee or [B]ribe?"))
+        ingame_event = eventID["id"]
+        fight_flee_bribe(text, ingame_event)
     elif eventID == 5:
-        health = 50
+        text = input("Do you want to [F]ight or [FL]ee?")
+        ingame_event = eventID["id"]
+        fight_flee_bribe(text, ingame_event)
     elif eventID == 7:
-        health = 50
+        print("The sneak attack took 60 health!")
+        print("Would you like to use a bandage now? It will heal you for 15 health")
+        ui = False
+        for item in inventory:
+            if item["id"] == "bandage":
+                while ui == False:
+                    text = input("Y to use bandage in inventory, N to not.")
+                    if text.upper() == "Y":
+                        inventory.remove(item)
+                        health += 15
+                        return
+                    elif text.upper() == "N":
+                        print("Good luck!")
+                        return
+                    else:
+                        print("Invalid input")
+        print("Oh wait, you have no bandages! Best get one soon!")
     elif eventID == 9:
-        health = 50
+        random_item = random.choice(items)
+        random_name = random_item["id"]
+        for item in inventory:
+            if random_item == item["id"]:
+                print("You cannot pick up {0} as you already have it!".format(random_name))
+                return
+        ui_choice = input("Do you want to pick up {0}, Y = yes, N = No.".format(random_name))
+        ui = False
+        while ui == False:
+            if ui_choice.upper() == "Y":
+                print("You have picked up {0}".format(random_name))
+                inventory.append(random_item)
+                ui = True
+            elif ui_choice.upper() == "N":
+                print("You decided to leave {0} alone".format(random_name))
+                ui = True
+            else:
+                print("invalid input")
     
     
 def menu(exits, room_items, inv_items):
@@ -312,7 +425,6 @@ def main():
 ╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
 ──────────╔═╝║
 ──────────╚══╝
-
 You have survived the purge!
 You fall flat on your back and sigh a sigh of relief.
 Glad to have survived the treaded purge and live on.

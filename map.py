@@ -158,7 +158,7 @@ where most of the shops have now been looted and only a few shops are still stan
 scrambling for the remains. 
     """,
 
-    "exits": {"north": "Museum", "south":"unknown","east": "unknown", "west":"Principality Stadium"},
+    "exits": {"north": "Museum", "south":"unknown","east": "Safe House", "west":"Principality Stadium"},
 
     "items": [item_knife, item_bandage]
 }

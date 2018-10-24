@@ -110,7 +110,6 @@ def print_menu(exits, room_items, inv_items):
         if item["id"] != "money":
            print("~ USE " + item["id"].upper() + " to use " + item["name"])
     print("\nWhat do you want to do?")
-
     
 def is_valid_exit(exits, chosen_exit):
   
@@ -308,5 +307,10 @@ Glad to have survived the treaded purge and live on.
             random_riddle = int(random.random() * 10)
             print(py_riddles[1])
 
+            
+
+# Are we being run as a script? If so, run main().
+# '__main__' is the name of the scope in which top-level code executes.
+# See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     main()

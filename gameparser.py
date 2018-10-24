@@ -11,7 +11,6 @@ skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
               'towards', 'until', 'us', 'want', 'we', 'what', 'when', 'why',
               'wish', 'with', 'would']
 
-
 def filter_words(words, skip_words):
     """This function takes a list of words and returns a copy of the list from
     which all words provided in the list skip_words have been removed.
@@ -33,9 +32,6 @@ def filter_words(words, skip_words):
             filtered_input = str(filtered_input) + " " + str(word)
     print(filtered_input)
     return filtered_input
-
-    
-
     
 def remove_punct(text):
     """This function is used to remove all punctuation
@@ -56,7 +52,6 @@ def remove_punct(text):
             no_punct = no_punct + char
 
     return no_punct
-
 
 def normalise_input(user_input):
     """This function removes all punctuation from the string and converts it to
@@ -88,6 +83,3 @@ def normalise_input(user_input):
     no_punct = remove_punct(user_input).lower()
     filtered_input = filter_words(no_punct, skip_words)
     return filtered_input.strip()
-    #
-    # COMPLETE ME!
-    #

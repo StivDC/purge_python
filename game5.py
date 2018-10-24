@@ -342,7 +342,7 @@ def event_action(eventID):
                         print("Invalid input")
         print("Oh wait, you have no bandages! Best get one soon!")
     elif eventID == 9:
-        random_item = random.choice(items)
+        random_item = random.choice(items).get()
         random_name = random_item["id"]
         for item in inventory:
             if random_item == item["id"]:
@@ -403,7 +403,6 @@ def main():
     while True:
         # Display game status (room description, inventory etc.)
         random.choice(list(py_riddles.items()))
-        print(health)
         random_riddle = int(random.random() * 5)
         for c in py_riddles:
             if c == int(random_riddle):
@@ -415,6 +414,8 @@ def main():
         
         # Execute the player's command
         execute_command(command)
+        print(health)
+
         if z == i: 
             print("""
 ╔═══╗─────────────╔╗───╔╗───╔╗

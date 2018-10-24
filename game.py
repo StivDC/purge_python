@@ -69,10 +69,6 @@ def print_menu(exits, room_items, inv_items):
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
 
-    #
-    # COMPLETE ME!
-    #
-
     for p_inv in inv_items:
         print("~ DROP " + p_inv["id"].upper() + " to drop " + p_inv["name"])
     
@@ -97,8 +93,6 @@ def check_if_won():
 def is_valid_exit(exits, chosen_exit):
   
     return chosen_exit in exits
-
-
 
 def execute_go(direction):
     

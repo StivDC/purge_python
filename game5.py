@@ -100,7 +100,6 @@ def print_menu(exits, room_items, inv_items):
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
 
-
     for p_inv in inv_items:
         print("~ DROP " + p_inv["id"].upper() + " to drop " + p_inv["name"])
     
@@ -108,22 +107,9 @@ def print_menu(exits, room_items, inv_items):
         print("~ TAKE " + item["id"].upper() + " to take " + item["name"])
 
     for item in inv_items:
-        print("~ USE " + item["id"].upper() + " to use " + item["name"])
+        if item["id"] != "money":
+           print("~ USE " + item["id"].upper() + " to use " + item["name"])
     print("\nWhat do you want to do?")
-
-def check_if_won():
-    won = True
-    if current_room["name"] == "Reception":
-        for i in items:
-            if i in rooms["Reception"]["items"]:
-                print()
-            else:
-                won = False
-        if won == False:
-            print()
-        else:
-            print("You've won")
-    
     
 def is_valid_exit(exits, chosen_exit):
   
@@ -141,7 +127,10 @@ def check_user_ok():
         else:
             print("This is an invalid input.")
 
-
+def use_money(value_used):
+    money -= value_used
+    return money
+    
 def execute_use(item_id):
     global current_mass
     found = False
@@ -206,7 +195,7 @@ def execute_drop(item_id):
             exists = 1
             current_mass -= items[item_id]['mass']
             print("Current Mass of Inventory: " + str(current_mass))
-            check_if_won()
+            
     if exists !=1:
         print("You cannot drop that.")
 

@@ -210,7 +210,7 @@ def main():
                                                                        
 """)
     print("MONEY: " + str(money) + "\nHEALTH: " + str(health) + "\n")
-    cprint('Hello, World!', 'green', 'on_red')
+    
     for x in testText:
         print(x, end='')
         sleep(uniform(0, 0.1))

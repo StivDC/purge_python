@@ -100,7 +100,6 @@ def print_menu(exits, room_items, inv_items):
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
 
-
     for p_inv in inv_items:
         print("~ DROP " + p_inv["id"].upper() + " to drop " + p_inv["name"])
     
@@ -108,22 +107,9 @@ def print_menu(exits, room_items, inv_items):
         print("~ TAKE " + item["id"].upper() + " to take " + item["name"])
 
     for item in inv_items:
-        print("~ USE " + item["id"].upper() + " to use " + item["name"])
+        if item["id"] != "money":
+           print("~ USE " + item["id"].upper() + " to use " + item["name"])
     print("\nWhat do you want to do?")
-
-def check_if_won():
-    won = True
-    if current_room["name"] == "Reception":
-        for i in items:
-            if i in rooms["Reception"]["items"]:
-                print()
-            else:
-                won = False
-        if won == False:
-            print()
-        else:
-            print("You've won")
-    
     
 def is_valid_exit(exits, chosen_exit):
   
@@ -141,7 +127,10 @@ def check_user_ok():
         else:
             print("This is an invalid input.")
 
-
+def use_money(value_used):
+    money -= value_used
+    return money
+    
 def execute_use(item_id):
     global current_mass
     found = False
@@ -166,7 +155,14 @@ def execute_go(direction):
         eventID = int(random.random() * 10)
         if eventID % 2 == 1:
             print(event(eventID))
+<<<<<<< HEAD
 
+=======
+            event_action(eventID)
+            print (eventID)
+        
+            
+>>>>>>> e8527c7dd98244578e91c8842113d66e1651dd24
         else:
             print("SAFE MOVE")
     else:
@@ -203,7 +199,7 @@ def execute_drop(item_id):
             exists = 1
             current_mass -= items[item_id]['mass']
             print("Current Mass of Inventory: " + str(current_mass))
-            check_if_won()
+            
     if exists !=1:
         print("You cannot drop that.")
 
@@ -243,6 +239,21 @@ def event(eventID):
     print("\n" + str(game_events[eventID]["ascii"]) + "\n")
     print(str(game_events[eventID]["name"]) + "\n")
     print(str(game_events[eventID]["description"]) + "\n")
+
+def event_action(eventID):
+    global health
+    
+    if eventID == 1:
+        health = 50
+    elif eventID == 3:
+        health = 50
+    elif eventID == 5:
+        health = 50
+    elif eventID == 7:
+        health = 50
+    elif eventID == 9:
+        health = 50
+    
     
 def menu(exits, room_items, inv_items):
 
@@ -260,7 +271,7 @@ def menu(exits, room_items, inv_items):
 def move(exits, direction):
   
     return rooms[exits[direction]]
-
+        
 
 # This is the entry point of our programg
 def main():
@@ -284,7 +295,15 @@ def main():
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
+<<<<<<< HEAD
         random.choice(py_riddles.items())
+=======
+        print(health)
+        random_riddle = int(random.random() * 5)
+        for c in py_riddles:
+            if c == int(random_riddle):
+                print(c)
+>>>>>>> e8527c7dd98244578e91c8842113d66e1651dd24
         print_room(current_room)
         print_inventory_items(inventory)
         # Show the menu with possible actions and ask the player

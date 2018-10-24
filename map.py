@@ -14,7 +14,7 @@ cardiff_university = {
 }
 
 blackweir_tavern = {
-     "name": " ~~~~~~~~~~~~ Blackweir Tavern ~~~~~~~~~~~~ ",
+     "name": "Blackweir Tavern",
 
     "description": """Its 11 o’clock. 
 You hear the siren thundering around the streets as you exit the University. 
@@ -32,7 +32,7 @@ You need to decide how you are going to survive the night.
 }
 
 bute_park = {
-     "name": " ~~~~~~~~~~~~ Bute Park ~~~~~~~~~~~~ ",
+     "name": "Bute Park",
 
     "description": """You enter an suspiciously quiet library.
 There are books scattered everywhere and there has clearly been some conflict in here already. 
@@ -158,7 +158,7 @@ where most of the shops have now been looted and only a few shops are still stan
 scrambling for the remains. 
     """,
 
-    "exits": {"north": "Museum", "south":"unknown","east": "unknown", "west":"Principality Stadium"},
+    "exits": {"north": "Museum", "south":"unknown","east": "Safe House", "west":"Principality Stadium"},
 
     "items": [item_knife, item_bandage]
 }

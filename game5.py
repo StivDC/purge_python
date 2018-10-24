@@ -155,14 +155,8 @@ def execute_go(direction):
         eventID = int(random.random() * 10)
         if eventID % 2 == 1:
             print(event(eventID))
-<<<<<<< HEAD
-
-=======
             event_action(eventID)
             print (eventID)
-        
-            
->>>>>>> e8527c7dd98244578e91c8842113d66e1651dd24
         else:
             print("SAFE MOVE")
     else:
@@ -295,15 +289,12 @@ def main():
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
-<<<<<<< HEAD
         random.choice(py_riddles.items())
-=======
         print(health)
         random_riddle = int(random.random() * 5)
         for c in py_riddles:
             if c == int(random_riddle):
                 print(c)
->>>>>>> e8527c7dd98244578e91c8842113d66e1651dd24
         print_room(current_room)
         print_inventory_items(inventory)
         # Show the menu with possible actions and ask the player

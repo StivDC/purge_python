@@ -5,6 +5,14 @@ cardiff_university = {
     "name": "Cardiff University",
 
     "description": """
+Its 11 o’clock. 
+You hear the siren thundering around the streets as you exit the University. 
+Weapons of Class Four and lower have been authorized for use during the Purge. 
+All other weapons are restricted commencing at the siren.
+Any and all crime, including murder will be legal for eight continuous hours for use during the Purge.
+There is a safe house nearby that you know of, but there will also be people out in the streets trying to purge. 
+You need to decide how you are going to survive the night. 
+
     """,
 
     "exits": {"east": "Blackweir Tavern", "west": "Bute Park", "south": "Library"},
@@ -16,14 +24,8 @@ cardiff_university = {
 blackweir_tavern = {
      "name": "Blackweir Tavern",
 
-    "description": """Its 11 o’clock. 
-You hear the siren thundering around the streets as you exit the University. 
-Weapons of Class Four and lower have been authorized for use during the Purge. 
-All other weapons are restricted commencing at the siren.
-Any and all crime, including murder will be legal for eight continuous hours for use during the Purge.
-There is a safe house nearby that you know of, but there will also be people out in the streets trying to purge. 
-You need to decide how you are going to survive the night. 
-
+    "description": """
+Blackweir tavern: you come across a looted pub, with empty pint glasses a clear sign that it was popular once the purge started. You can hear violence off in the distance however none appears to be close for the moment. You can either walk east or west along the street.
     """,
 
     "exits": {"east": "Lidl", "west": "Cardiff University"},
@@ -34,9 +36,13 @@ You need to decide how you are going to survive the night.
 bute_park = {
      "name": "Bute Park",
 
-    "description": """You enter an suspiciously quiet library.
-There are books scattered everywhere and there has clearly been some conflict in here already. 
-You can make out three clear exit doors.
+    "description": """You enter a dark Forest.
+
+The tree cover is dense and it is hard to make out the paths.
+
+You can hear distant noises from other things inhabiting the forest with you.
+
+You can see two breaks of light: one close and one far off in the distance.
 
     """,
 
@@ -49,10 +55,11 @@ You can make out three clear exit doors.
 building_library = {
     "name": "Library",
 
-    "description": """You enter a dark Forest. 
-The tree cover is dense and it is hard to make out the paths. 
-You can hear distant noises from other things inhabiting the forest with you. 
-You can see two breaks of light: one close and one far off in the distance.
+    "description": """You enter an suspiciously quiet library.
+
+ There are books scattered everywhere and there has clearly been some conflict in here already.
+
+You can make out three clear exit doors
     """,
 
     "exits": {"north": "Cardiff University", "east": "Lidl", "south": "City Hall"},
@@ -123,10 +130,15 @@ There are two possible exits from the castle.
 building_museum = {
     "name": "Museum",
 
-    "description": """You find yourself at the gates to the Castle. 
-There are faint screams that can be heard from the other side of the castle,
- there are signs of conflict scattered around. 
-There are two possible exits from the castle.
+    "description": """The path leads you to the museum.
+
+ Some of the artifacts are now missing and there are ancient items broken all around the room.
+
+ You can hear that people are still looting some rooms within the museum
+
+ and you hope that they keep to themselves and do not notice your presence.
+
+ There are two exits you could take.
     """,
 
     "exits": {"east": "Student's Union", "south": "Shopping Centre", "west": "Castle"},

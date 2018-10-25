@@ -125,6 +125,7 @@ def check_user_ok():
             return False
         else:
             print("This is an invalid input.")
+            return False
 
 def use_money(value_used):
     money -= value_used
@@ -317,11 +318,13 @@ def event_action(eventID):
         #fight, flee or bribe
         print("Which do you choose to do?")
         text = input(print("[F]ight, [FL]ee or [B]ribe?"))
-        ingame_event = eventID["id"]
+        eventIDStr = str(eventID)
+        ingame_event = game_events(eventID["id"])
         fight_flee_bribe(text, ingame_event)
     elif eventID == 5:
         text = input("Do you want to [F]ight or [FL]ee?")
-        ingame_event = eventID["id"]
+        eventIDStr = str(eventID)
+        ingame_event = game_events(eventID["id"])
         fight_flee_bribe(text, ingame_event)
     elif eventID == 7:
         print("The sneak attack took 60 health!")
@@ -342,21 +345,23 @@ def event_action(eventID):
                         print("Invalid input")
         print("Oh wait, you have no bandages! Best get one soon!")
     elif eventID == 9:
-        random_item = random.choice(items).get()
-        random_name = random_item["id"]
+        
+        random_item = items["knife"]["id"]
         for item in inventory:
             if random_item == item["id"]:
-                print("You cannot pick up {0} as you already have it!".format(random_name))
+                print("You cannot have this item as you already have it!")
                 return
-        ui_choice = input("Do you want to pick up {0}, Y = yes, N = No.".format(random_name))
+        random_item_int = int(random.random() * 6)
+        random_item_str = str(random_item_int)
+        ui_choice = input("Do you want to pick up a knife, Y = yes, N = No.")
         ui = False
         while ui == False:
             if ui_choice.upper() == "Y":
-                print("You have picked up {0}".format(random_name))
+                print("You have picked up a knife")
                 inventory.append(random_item)
                 ui = True
             elif ui_choice.upper() == "N":
-                print("You decided to leave {0} alone".format(random_name))
+                print("You decided to leave knife alone")
                 ui = True
             else:
                 print("invalid input")

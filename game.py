@@ -5,7 +5,7 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
-from time import sleep
+from time import *
 import random
 from events import game_events
 import sys
@@ -97,7 +97,8 @@ def print_menu(exits, room_items, inv_items):
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
-        print_exit(direction, exit_leads_to(exits, direction))
+        if len(exits) != 0:
+            print_exit(direction, exit_leads_to(exits, direction))
 
     for p_inv in inv_items:
         print("~ DROP " + p_inv["id"].upper() + " to drop " + p_inv["name"])
@@ -106,7 +107,7 @@ def print_menu(exits, room_items, inv_items):
         print("~ TAKE " + item["id"].upper() + " to take " + item["name"])
 
     for item in inv_items:
-        if item["id"] != "money":
+        if item["id"] == "health" or item['id'] == "bandage" or item['id'] == "firstaid":
            print("~ USE " + item["id"].upper() + " to use " + item["name"])
     print("\nWhat do you want to do?")
     
@@ -114,7 +115,7 @@ def is_valid_exit(exits, chosen_exit):
   
     return chosen_exit in exits
 
-def check_user_ok():
+def check_user_ok(text):
     while True:
         print("Are you sure you want to commit this action?")
         print("Y for yes, N for no.")
@@ -132,13 +133,17 @@ def use_money(value_used):
     return money
     
 def execute_use(item_id):
+    global health
     global current_mass
     found = False
     for item in inventory:
         if item_id == item["id"]:
             print("")
-            if check_user_ok() == True:
+            text = item["id"]
+            if check_user_ok(text) == True:
                 inventory.remove(item)
+                if item_id == "health" or item_id=="bandage" or item_id=="firstaid":
+                    health += 20
             elif check_user_ok() == False:
                 print("You did not use your item.")
             found = True
@@ -149,8 +154,10 @@ def execute_use(item_id):
 def execute_go(direction):
     
     global current_room
+
     exit = is_valid_exit(current_room['exits'], direction)
     if exit:
+
         current_room = move(current_room['exits'], direction)
         eventID = int(random.random() * 10)
         if eventID % 2 == 1:
@@ -314,14 +321,14 @@ def event_action(eventID):
                     return
         print("You do not have an ID and can't use Kirill's van.")
         return
-    elif eventID == 3:
+    elif eventID == None:
         #fight, flee or bribe
         print("Which do you choose to do?")
         text = input(print("[F]ight, [FL]ee or [B]ribe?"))
         eventIDStr = str(eventID)
         ingame_event = game_events(eventID["id"])
         fight_flee_bribe(text, ingame_event)
-    elif eventID == 5:
+    elif eventID == None:
         text = input("Do you want to [F]ight or [FL]ee?")
         eventIDStr = str(eventID)
         ingame_event = game_events(eventID["id"])
@@ -384,6 +391,20 @@ def move(exits, direction):
   
     return rooms[exits[direction]]
         
+def print_congratulations():
+     print("""
+╔═══╗─────────────╔╗───╔╗───╔╗
+║╔═╗║────────────╔╝╚╗──║║──╔╝╚╗
+║║─╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
+║║─╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
+║╚═╝║╚╝║║║║╚╝║║║╔╗║╚╣╚╝║╚╣╔╗║╚╣║╚╝║║║╠══║
+╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
+──────────╔═╝║
+──────────╚══╝
+You have survived the purge!
+You fall flat on your back and sigh a sigh of relief.
+Glad to have survived the treaded purge and live on.
+                """)
 
 # This is the entry point of our programg
 def main():
@@ -399,10 +420,6 @@ def main():
                                                                        
 """)
     print("MONEY: " + str(money) + "\nHEALTH: " + str(health) + "\n")
-    testText = " "
-    for x in testText:
-        print(x, end='')
-        #sleep(uniform(0, 0.1))
     
     # Main game loop
     while True:
@@ -413,28 +430,27 @@ def main():
             if c == int(random_riddle):
                 print(c)
         print_room(current_room)
-        print_inventory_items(inventory)
-        # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+      
+        if current_room["name"] == "Safe House":
+            print_congratulations()
+            sys.exit()
+            return False
+        else:
+              print_inventory_items(inventory)
+              command = menu(current_room["exits"], current_room["items"], inventory)
+              execute_command(command)
+        
         
         # Execute the player's command
-        execute_command(command)
-        print(health)
+        
+        print("You have ", health, " left.")
+        if health <= 0:
+            print("You didn't survive the purge!")
+            break
 
-        if z == i: 
-            print("""
-╔═══╗─────────────╔╗───╔╗───╔╗
-║╔═╗║────────────╔╝╚╗──║║──╔╝╚╗
-║║─╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
-║║─╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
-║╚═╝║╚╝║║║║╚╝║║║╔╗║╚╣╚╝║╚╣╔╗║╚╣║╚╝║║║╠══║
-╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
-──────────╔═╝║
-──────────╚══╝
-You have survived the purge!
-You fall flat on your back and sigh a sigh of relief.
-Glad to have survived the treaded purge and live on.
-                """)
+        if z == i:
+            print_congratulations()
+           
             break
         elif i != z:
             i += 0.5

@@ -40,7 +40,7 @@ item_knife = {
 }
 
 item_first_aid = {
-    "id": "first aid",
+    "id": "firstaid",
 
     "name": "first aid kit to heal up",
 
